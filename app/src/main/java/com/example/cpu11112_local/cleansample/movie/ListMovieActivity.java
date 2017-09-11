@@ -14,9 +14,9 @@ public class ListMovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // add fragment
-        ListMovieFragment listMovieFragment = (ListMovieFragment) getSupportFragmentManager().findFragmentById(R.id.framelayout_act_main_content);
+        MovieViewpagerFragment listMovieFragment = (MovieViewpagerFragment) getSupportFragmentManager().findFragmentById(R.id.framelayout_act_main_content);
         if (listMovieFragment == null) {
-            listMovieFragment = ListMovieFragment.newInstance();
+            listMovieFragment = MovieViewpagerFragment.newInstance();
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), listMovieFragment, R.id.framelayout_act_main_content);
         }

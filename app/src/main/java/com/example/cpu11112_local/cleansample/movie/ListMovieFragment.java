@@ -1,38 +1,38 @@
 package com.example.cpu11112_local.cleansample.movie;
 
-
-import android.support.v4.app.Fragment;
-import android.view.View;
+import android.support.annotation.NonNull;
 
 import com.example.cpu11112_local.cleansample.R;
-import com.example.cpu11112_local.cleansample.view.BaseFragment;
+
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by phongdth.ky on 8/11/2016.
  */
-public class ListMovieFragment extends BaseFragment {
+public class ListMovieFragment extends BaseListMovieFragment {
+
     public ListMovieFragment() {
-        // Required empty public constructor
     }
 
+    @NonNull
     public static ListMovieFragment newInstance() {
         return new ListMovieFragment();
     }
 
+    /**
+     * a child fragment can use to make their own layout, set force load sepend on sort of viewpager
+     */
+    @Override
+    protected void loadData(int page) {
+//        getMListener().setForceLoad();
+    }
+
+    @Override
+    public void setThePullToRefreshAppear() {
+        getMSwiperefreshHome().setRefreshing(true);
+    }
+
     @Override
     public int getResourceLayout() {
-        return R.layout.fragment_list_movie;
-    }
-
-    @Override
-    public void initViews(View view) {
-        fragmentComponent().inject(this);
-//        mPresenter.attachView(this);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-//        mPresenter.detachView(this);
+        return R.layout.fragment_item_list_movie;
     }
 }

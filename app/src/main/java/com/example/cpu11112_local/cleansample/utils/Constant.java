@@ -15,4 +15,6 @@ public class Constant {
     public static final String BASE_URL = "http://api.themoviedb.org/3/";
     public static final String SITE_YOUTUBE = "YouTube";
 
+    public static final String POSTER_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
+    public static final String POSTER_IMAGE_SIZE = "w780";
 }
