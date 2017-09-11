@@ -6,12 +6,13 @@ import android.preference.PreferenceManager;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by CPU11112-local on 9/11/2017.
  */
-
+@Module
 public class RepositionModule {
     @Provides
     @Singleton

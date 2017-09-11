@@ -2,6 +2,12 @@ package com.example.cpu11112_local.cleansample;
 
 import android.app.Application;
 
+import com.example.cpu11112_local.cleansample.injection.component.DaggerMovieComponent;
+import com.example.cpu11112_local.cleansample.injection.component.MovieComponent;
+import com.example.cpu11112_local.cleansample.injection.module.ApplicationModule;
+import com.example.cpu11112_local.cleansample.injection.module.MovieApiServiceModule;
+import com.example.cpu11112_local.cleansample.injection.module.RepositionModule;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**

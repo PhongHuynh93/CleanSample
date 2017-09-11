@@ -2,17 +2,19 @@ package com.example.cpu11112_local.cleansample.injection.module;
 
 import android.content.Context;
 
+import com.example.cpu11112_local.cleansample.data.remote.MovieRetrofitEndpoint;
 import com.example.cpu11112_local.cleansample.data.remote.MovieRetrofitInstance;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
 
 /**
  * Created by CPU11112-local on 9/11/2017.
  */
-
+@Module
 public class MovieApiServiceModule {
     //   retrofit instance
     @Provides
@@ -29,9 +31,9 @@ public class MovieApiServiceModule {
     }
 
     //    interact with server
-    @Provides
-    @Singleton
-    public MovieInteractor provideArtistSearchInteractor(MovieRetrofitEndpoint apiService, Context context) {
-        return new MovieInteractor(context, apiService);
-    }
+//    @Provides
+//    @Singleton
+//    public MovieInteractor provideArtistSearchInteractor(MovieRetrofitEndpoint apiService, Context context) {
+//        return new MovieInteractor(context, apiService);
+//    }
 }

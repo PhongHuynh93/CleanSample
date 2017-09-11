@@ -17,39 +17,39 @@ import lombok.Getter;
 @Getter
 public class MovieVideosResponse {
     @SerializedName("id")
-    private long movieId;
+    long movieId;
 
     @SerializedName("results")
-    private ArrayList<MovieVideo> results;
+    ArrayList<MovieVideo> results;
 
     @Parcel
     @Getter
-    public static class MovieVideo{
+    public static class MovieVideo {
         @SerializedName("id")
-        private String videoId;
+        String videoId;
 
         @SerializedName("iso_639_1")
-        private String languageCode;
+        String languageCode;
 
         @SerializedName("iso_3166_1")
-        private String countryCode;
+        String countryCode;
 
         // declare the key to go to exactly where the video will be played
         @SerializedName("key")
-        private String key;
+        String key;
 
         @SerializedName("name")
-        private String name;
+        String name;
 
         // declare which site contains this video clip
         @SerializedName("site")
-        private String site;
+        String site;
 
         @SerializedName("size")
-        private int size;
+        int size;
 
         @SerializedName("type")
-        private String type;
+        String type;
 
         // find out the site of movies whether it if from youtube or not.
         public boolean isYoutubeVideo() {

@@ -6,7 +6,6 @@ import org.parceler.Parcel;
 
 import java.util.ArrayList;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,50 +15,49 @@ import lombok.Setter;
 @Getter
 public class DiscoverMovieResponse {
     @SerializedName("page")
-    private int page;
+    int page;
 
     @SerializedName("results")
-    private ArrayList<DiscoverMovie> results;
+    ArrayList<DiscoverMovie> results;
 
     @SerializedName("total_pages")
-    private int totalPages;
+    int totalPages;
 
     @SerializedName("total_results")
-    private long totalResults;
+    long totalResults;
 
-    @AllArgsConstructor
     @Parcel
     @Getter
     @Setter
     public static class DiscoverMovie {
         @SerializedName("id")
-        private long id;
+        long id;
 
         @SerializedName("original_title")
-        private String originalTitle;
+        String originalTitle;
 
         @SerializedName("overview")
-        private String overview;
+        String overview;
 
         @SerializedName("release_date")
-        private String releaseDate;
+        String releaseDate;
 
         @SerializedName("poster_path")
-        private String posterPath;
+        String posterPath;
 
         @SerializedName("popularity")
-        private double popularity;
+        double popularity;
 
         @SerializedName("title")
-        private String title;
+        String title;
 
         @SerializedName("vote_average")
-        private double averageVote;
+        double averageVote;
 
         @SerializedName("vote_count")
-        private long voteCount;
+        long voteCount;
 
         @SerializedName("backdrop_path")
-        private String backdropPath;
+        String backdropPath;
     }
 }
