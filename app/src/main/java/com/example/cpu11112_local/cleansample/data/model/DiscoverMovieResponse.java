@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ public class DiscoverMovieResponse {
     int page;
 
     @SerializedName("results")
-    ArrayList<DiscoverMovie> results;
+    List<DiscoverMovie> results;
 
     @SerializedName("total_pages")
     int totalPages;

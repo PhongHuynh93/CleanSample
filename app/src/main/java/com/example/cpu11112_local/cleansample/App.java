@@ -1,6 +1,7 @@
 package com.example.cpu11112_local.cleansample;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.example.cpu11112_local.cleansample.injection.component.DaggerMovieComponent;
 import com.example.cpu11112_local.cleansample.injection.component.MovieComponent;
@@ -32,5 +33,13 @@ public class App extends Application {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+    }
+
+    public static App get(Context context) {
+        return (App) context.getApplicationContext();
+    }
+
+    public MovieComponent getComponent() {
+        return mMovieComponent;
     }
 }
