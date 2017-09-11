@@ -13,5 +13,6 @@ public class Constant {
 
     public static final String THE_MOVIE_DB_API_KEY = "53470b56a60668274e1dd9f84d882564";
     public static final String BASE_URL = "http://api.themoviedb.org/3/";
+    public static final String SITE_YOUTUBE = "YouTube";
 
 }
