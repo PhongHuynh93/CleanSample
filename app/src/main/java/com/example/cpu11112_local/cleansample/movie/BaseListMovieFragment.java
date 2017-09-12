@@ -108,6 +108,12 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
 
     protected abstract void loadData(int page);
 
+    @Override
+    public void showListMovie(DiscoverMovieResponse discoverMovieResponse) {
+        mListMovieRecyclerViewAdapter.setData(discoverMovieResponse.getResults());
+    }
+
+
     public abstract void setThePullToRefreshAppear();
 
     public void setThePullToRefreshDissappear() {
@@ -133,7 +139,7 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
         void gotoDetailActivity(DiscoverMovieResponse.DiscoverMovie item);
     }
 
-    protected void getDataFromServer(int page) {
-        mPresenter.getDataFromServer(page);
+    protected void getDataFromServer(int page, String sortBy) {
+        mPresenter.getDataFromServer(sortBy, page);
     }
 }

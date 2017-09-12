@@ -1,21 +1,28 @@
 package com.example.cpu11112_local.cleansample.movie;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.example.cpu11112_local.cleansample.R;
+import com.example.cpu11112_local.cleansample.data.model.DiscoverMovieResponse;
 
 
 /**
  * Created by phongdth.ky on 8/11/2016.
  */
 public class ListMovieFragment extends BaseListMovieFragment {
+    private static final String ARG_SORT_KEY = "ARG_SORT_KEY";
 
     public ListMovieFragment() {
     }
 
     @NonNull
-    public static ListMovieFragment newInstance() {
-        return new ListMovieFragment();
+    public static ListMovieFragment newInstance(String sortBy) {
+        ListMovieFragment fragment = new ListMovieFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(ARG_SORT_KEY, sortBy);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     /**
@@ -24,8 +31,7 @@ public class ListMovieFragment extends BaseListMovieFragment {
     @Override
     protected void loadData(int page) {
         // TODO: 9/12/2017 get from the remote site
-        getDataFromServer(page);
-//        getMListener().setForceLoad();
+        getDataFromServer(page, getArguments().getString(ARG_SORT_KEY));
     }
 
     @Override

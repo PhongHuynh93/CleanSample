@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cpu11112_local.cleansample.App;
-import com.example.cpu11112_local.cleansample.injection.component.DaggerFragmentComponent;
 import com.example.cpu11112_local.cleansample.injection.component.FragmentComponent;
 import com.example.cpu11112_local.cleansample.injection.module.FragmentModule;
 
@@ -25,10 +24,12 @@ public abstract class BaseFragment extends Fragment {
 
     public FragmentComponent fragmentComponent() {
         if (mFragmentComponent == null) {
-            mFragmentComponent = DaggerFragmentComponent.builder()
-                    .fragmentModule(new FragmentModule(this))
-                    .movieComponent(App.get(getActivity()).getComponent())
-                    .build();
+//            mFragmentComponent = DaggerFragmentComponent.builder()
+//                    .fragmentModule(new FragmentModule(this))
+//                    .movieComponent(App.get(getActivity()).getComponent())
+//                    .build();
+
+            mFragmentComponent = App.get(getActivity()).getComponent().newSubFragmentComponent(new FragmentModule(this));
         }
         return mFragmentComponent;
     }

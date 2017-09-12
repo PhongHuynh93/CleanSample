@@ -47,8 +47,6 @@ public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovie
     public void onBindViewHolder(MovieViewHolder viewHolder, int position) {
         DiscoverMovieResponse.DiscoverMovie movie = mListData.get(position);
         viewHolder.mTextviewListmovieNameofmovie.setText(movie.getOriginalTitle());
-//            viewHolder.mTextviewListmovieTypeofmovie.setText(movie.getOriginalTitle());
-//            viewHolder.mTextviewListmovieLengthofmovie.setText(movie.getOriginalTitle());
         viewHolder.mfabVoteAverate.setText("" + movie.getAverageVote());
         viewHolder.mTextViewListMovieViewCount.setText("" + movie.getVoteCount());
         viewHolder.mTextviewListmovieDescriptionofmovie.setText(movie.getOverview());
@@ -62,6 +60,12 @@ public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovie
         Glide.with(mContext)
                 .load(urlImage)
                 .into(viewHolder.mImageviewListmovieImageofmovie);
+    }
+
+    // TODO: 9/12/2017 if page = 1, remove all data.
+    public void setData(List<DiscoverMovieResponse.DiscoverMovie> listData) {
+        mListData.addAll(listData);
+        notifyDataSetChanged();
     }
 
     @Override

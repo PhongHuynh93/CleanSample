@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.example.cpu11112_local.cleansample.R;
+import com.example.cpu11112_local.cleansample.utils.Constant;
 import com.example.cpu11112_local.cleansample.utils.SmartFragmentStatePagerAdapter;
 
 /**
@@ -35,11 +36,11 @@ public class ListMovieViewPagerAdapter extends SmartFragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case MOST_POPULAR: // ListMovieItemFragment # 0 - This will show FirstFragment
-                return ListMovieFragment.newInstance();
+                return ListMovieFragment.newInstance(Constant.MOST_POPULAR);
             case HIGHEST_RATED: // ListMovieItemFragment # 0 - This will show FirstFragment different title
-                return ListMovieFragment.newInstance();
+                return ListMovieFragment.newInstance(Constant.HIGHEST_RATED);
             case MOST_RATED: // ListMovieItemFragment # 1 - This will show SecondFragment
-                return ListMovieFragment.newInstance();
+                return ListMovieFragment.newInstance(Constant.MOST_RATED);
             default:
                 return null;
         }

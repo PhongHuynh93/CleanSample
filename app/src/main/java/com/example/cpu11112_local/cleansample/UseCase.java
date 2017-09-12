@@ -30,7 +30,7 @@ import io.reactivex.schedulers.Schedulers;
  * By convention each UseCase implementation will return the result using a {@link DisposableObserver}
  * that will execute its job in a background thread and will post the result in the UI thread.
  */
-public abstract class UseCase<T, Params> {
+public abstract class UseCase<Q extends UseCase.RequestValues, P extends UseCase.ResponseValue> {
     private final CompositeDisposable disposables;
 
     public UseCase() {
@@ -39,18 +39,15 @@ public abstract class UseCase<T, Params> {
 
     /**
      * Builds an {@link Observable} which will be used when executing the current {@link UseCase}.
+     * @param params
      */
-    public abstract Observable<T> buildUseCaseObservable(Params params);
+    protected abstract Observable<P> buildUseCaseObservable(Q params);
 
     /**
      * Executes the current use case.
-     *
-     * @param observer {@link DisposableObserver} which will be listening to the observable build
-     * by {@link #buildUseCaseObservable(Params)} ()} method.
-     * @param params Parameters (Optional) used to build/execute this use case.
      */
-    public void execute(DisposableObserver<T> observer, Params params) {
-        final Observable<T> observable = this.buildUseCaseObservable(params)
+    public void execute(DisposableObserver<P> observer, Q requestValues) {
+        final Observable<P> observable = this.buildUseCaseObservable(requestValues)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
         addDisposable(observable.subscribeWith(observer));
@@ -70,5 +67,17 @@ public abstract class UseCase<T, Params> {
      */
     private void addDisposable(Disposable disposable) {
         disposables.add(disposable);
+    }
+
+    /**
+     * Data passed to a request.
+     */
+    public interface RequestValues {
+    }
+
+    /**
+     * Data received from a request.
+     */
+    public interface ResponseValue {
     }
 }

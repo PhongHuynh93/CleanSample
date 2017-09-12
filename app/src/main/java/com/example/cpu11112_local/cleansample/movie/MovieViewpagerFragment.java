@@ -15,7 +15,7 @@ import butterknife.BindView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MovieViewpagerFragment extends BaseFragment implements ListMovieView {
+public class MovieViewpagerFragment extends BaseFragment {
 
     @BindView(R.id.viewpager_frag_list_movie_contain)
     ViewPager mViewpagerFragListMovieContent;
