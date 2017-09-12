@@ -53,6 +53,8 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
         super.onAttach(context);
         if (context instanceof Activity) {
             mListener = (OnFragInteract) context;
+        } else {
+            throw new IllegalArgumentException("Activity phai implement this interface nay");
         }
     }
 

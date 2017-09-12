@@ -39,5 +39,9 @@ public class MovieViewpagerFragment extends BaseFragment {
 
     @Override
     public void initViews(View view) {
+        // TODO: 9/12/2017 add the adapter into this viewpager
+        // set up viewpager
+        mViewpagerFragListMovieContent.setAdapter(new ListMovieViewPagerAdapter(getContext(), getChildFragmentManager()));
+        mTablayoutFraglistmovie.setupWithViewPager(mViewpagerFragListMovieContent);
     }
 }
