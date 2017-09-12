@@ -23,6 +23,8 @@ public class ListMovieFragment extends BaseListMovieFragment {
      */
     @Override
     protected void loadData(int page) {
+        // TODO: 9/12/2017 get from the remote site
+
 //        getMListener().setForceLoad();
     }
 

@@ -17,4 +17,7 @@ public class Constant {
 
     public static final String POSTER_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
     public static final String POSTER_IMAGE_SIZE = "w780";
+    public static final String MOVIE_REPOSITION = "MOVIE_REPOSITION";
+    public static final String MOVIE_LOCAL = "MOVIE_LOCAL";
+    public static final String MOVIE_REMOTE = "MOVIE_REMOTE";
 }

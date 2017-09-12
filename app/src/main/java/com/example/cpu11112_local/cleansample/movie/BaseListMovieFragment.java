@@ -16,8 +16,6 @@ import com.example.cpu11112_local.cleansample.utils.HelpUtils;
 import com.example.cpu11112_local.cleansample.utils.VerticalSpaceItemDecoration;
 import com.example.cpu11112_local.cleansample.view.BaseFragment;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import lombok.Getter;
 
@@ -31,7 +29,6 @@ import lombok.Getter;
  */
 // : 8/9/2016 set the adapter in dagger
 public abstract class BaseListMovieFragment extends BaseFragment {
-    @Inject
     ListMovieRecyclerViewAdapter mListMovieRecyclerViewAdapter;
 
     @BindView(R.id.recyclerview_home_list_movies)
@@ -70,6 +67,7 @@ public abstract class BaseListMovieFragment extends BaseFragment {
                 android.R.color.holo_red_light);
         mSwiperefreshHome.setOnRefreshListener(() -> loadData(1));
 
+        mListMovieRecyclerViewAdapter = new ListMovieRecyclerViewAdapter(getContext());
         // : 8/1/16 set adapter for recyclerview
         mListMovieRecyclerViewAdapter.setOnItemClickListener((itemView, position) -> {
             // =: 8/7/16 when click, go to another activity to show detail
