@@ -30,11 +30,13 @@ public class ListMoviePresenter extends BasePresenter<ListMovieView> {
     private final class MovieListObserver extends DisposableObserver<GetMovieList.ResponseValue> {
         @Override
         public void onNext(@io.reactivex.annotations.NonNull GetMovieList.ResponseValue responseValue) {
+            getMvpView().setThePullToRefreshDissappear();
             getMvpView().showListMovie(responseValue.getDiscoverMovieResponse());
         }
 
         @Override
         public void onError(@io.reactivex.annotations.NonNull Throwable e) {
+            getMvpView().setThePullToRefreshDissappear();
             e.printStackTrace();
         }
 

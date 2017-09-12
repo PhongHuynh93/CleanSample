@@ -81,7 +81,10 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-        mSwiperefreshHome.setOnRefreshListener(() -> loadData(1));
+        mSwiperefreshHome.setOnRefreshListener(() -> {
+            mListMovieRecyclerViewAdapter.resetData();
+            loadData(1);
+        });
 
         mListMovieRecyclerViewAdapter = new ListMovieRecyclerViewAdapter(getContext());
         // : 8/1/16 set adapter for recyclerview
@@ -97,6 +100,8 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
         mRecyclerviewHomeListMovies.addItemDecoration(new VerticalSpaceItemDecoration((int) HelpUtils.getPixelForDp(getContext(), 13)));
         mRecyclerviewHomeListMovies.setHasFixedSize(true);
 
+        // load the first page first time
+        loadData(1);
         endlessRecyclerViewScrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             // : 8/1/16 load more items from list
@@ -115,8 +120,9 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
         mListMovieRecyclerViewAdapter.setData(discoverMovieResponse.getResults());
     }
 
-
-    public abstract void setThePullToRefreshAppear();
+    public void setThePullToRefreshAppear() {
+        mSwiperefreshHome.setRefreshing(true);
+    }
 
     public void setThePullToRefreshDissappear() {
         mSwiperefreshHome.setRefreshing(false);

@@ -9,4 +9,5 @@ import com.example.cpu11112_local.cleansample.data.model.DiscoverMovieResponse;
 
 public interface ListMovieView extends MvpView {
     void showListMovie(DiscoverMovieResponse discoverMovieResponse);
+    void setThePullToRefreshDissappear();
 }

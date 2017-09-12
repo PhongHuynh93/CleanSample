@@ -2,9 +2,11 @@ package com.example.cpu11112_local.cleansample.movie;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.example.cpu11112_local.cleansample.R;
-import com.example.cpu11112_local.cleansample.data.model.DiscoverMovieResponse;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -30,6 +32,7 @@ public class ListMovieFragment extends BaseListMovieFragment {
      */
     @Override
     protected void loadData(int page) {
+        Log.e(TAG, "loadData: page " + page);
         // TODO: 9/12/2017 get from the remote site
         getDataFromServer(page, getArguments().getString(ARG_SORT_KEY));
     }

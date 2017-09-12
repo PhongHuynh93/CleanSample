@@ -77,6 +77,11 @@ public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovie
         return mListData.get(position);
     }
 
+    public void resetData() {
+        mListData.clear();
+        notifyDataSetChanged();
+    }
+
     public static class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private OnItemClickListener onItemClickListener;
         @BindView(R.id.textview_listmovie_nameofmovie)
