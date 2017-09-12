@@ -25,6 +25,6 @@ public class ListMovieActivity extends AppCompatActivity implements BaseListMovi
 
     @Override
     public void gotoDetailActivity(DiscoverMovieResponse.DiscoverMovie item) {
-
+        // TODO: 9/12/2017 implement go to detail activity
     }
 }

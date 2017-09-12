@@ -39,8 +39,29 @@ public abstract class BaseFragment extends Fragment {
         View view = inflater.inflate(getResourceLayout(), container, false);
         ButterKnife.bind(this, view);
         initViews(view);
+//        if (hasToolbar()) {
+//            setHasOptionsMenu(true);
+//            Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+//            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+//            ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
+//            if (ab != null) {
+//                ab.setHomeAsUpIndicator(R.drawable.toolbar_open_drawer);
+//                ab.setDisplayHomeAsUpEnabled(true); // set the left arrow in toolbar
+//                if (getTitle() != null) {
+//                    ab.setTitle(getTitle());
+//                }
+//            }
+//        }
         return view;
     }
+
+//    protected String getTitle() {
+//        return "";
+//    }
+//
+//    protected boolean hasToolbar() {
+//        return true;
+//    }
 
     public abstract int getResourceLayout();
 
