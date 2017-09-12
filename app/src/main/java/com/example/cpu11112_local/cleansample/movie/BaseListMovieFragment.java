@@ -16,6 +16,8 @@ import com.example.cpu11112_local.cleansample.utils.HelpUtils;
 import com.example.cpu11112_local.cleansample.utils.VerticalSpaceItemDecoration;
 import com.example.cpu11112_local.cleansample.view.BaseFragment;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import lombok.Getter;
 
@@ -28,7 +30,10 @@ import lombok.Getter;
  *
  */
 // : 8/9/2016 set the adapter in dagger
-public abstract class BaseListMovieFragment extends BaseFragment {
+public abstract class BaseListMovieFragment extends BaseFragment implements ListMovieView {
+    @Inject
+    ListMoviePresenter mPresenter;
+
     ListMovieRecyclerViewAdapter mListMovieRecyclerViewAdapter;
 
     @BindView(R.id.recyclerview_home_list_movies)
@@ -58,7 +63,16 @@ public abstract class BaseListMovieFragment extends BaseFragment {
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mPresenter.detachView();
+    }
+
+    @Override
     public void initViews(View view) {
+        fragmentComponent().inject(this);
+        mPresenter.attachView(this);
+
         // Configure the refreshing colors
         mSwiperefreshHome.setColorSchemeResources(
                 android.R.color.holo_blue_bright,
@@ -117,5 +131,9 @@ public abstract class BaseListMovieFragment extends BaseFragment {
 
     public interface OnFragInteract {
         void gotoDetailActivity(DiscoverMovieResponse.DiscoverMovie item);
+    }
+
+    protected void getDataFromServer(int page) {
+        mPresenter.getDataFromServer(page);
     }
 }

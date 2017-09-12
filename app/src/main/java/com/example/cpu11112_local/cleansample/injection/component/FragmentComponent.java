@@ -2,7 +2,7 @@ package com.example.cpu11112_local.cleansample.injection.component;
 
 import com.example.cpu11112_local.cleansample.injection.PerFragment;
 import com.example.cpu11112_local.cleansample.injection.module.FragmentModule;
-import com.example.cpu11112_local.cleansample.movie.MovieViewpagerFragment;
+import com.example.cpu11112_local.cleansample.movie.BaseListMovieFragment;
 
 import dagger.Component;
 
@@ -12,5 +12,5 @@ import dagger.Component;
 @PerFragment
 @Component(dependencies = MovieComponent.class, modules = FragmentModule.class)
 public interface FragmentComponent {
-    void inject(MovieViewpagerFragment fragment);
+    void inject(BaseListMovieFragment fragment);
 }

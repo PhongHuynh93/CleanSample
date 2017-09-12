@@ -8,6 +8,7 @@ import com.example.cpu11112_local.cleansample.data.MovieDataSource;
 import com.example.cpu11112_local.cleansample.data.MovieReposition;
 import com.example.cpu11112_local.cleansample.data.local.MovieLocalDataSource;
 import com.example.cpu11112_local.cleansample.data.remote.MovieRemoteDataSource;
+import com.example.cpu11112_local.cleansample.data.remote.MovieRetrofitEndpoint;
 import com.example.cpu11112_local.cleansample.utils.Constant;
 
 import javax.inject.Named;
@@ -44,7 +45,7 @@ public class RepositionModule {
     @Provides
     @Singleton
     @Named(Constant.MOVIE_REMOTE)
-    MovieDataSource getRemoteMovie() {
-        return new MovieRemoteDataSource();
+    MovieDataSource getRemoteMovie(MovieRetrofitEndpoint movieRetrofitEndpoint) {
+        return new MovieRemoteDataSource(movieRetrofitEndpoint);
     }
 }

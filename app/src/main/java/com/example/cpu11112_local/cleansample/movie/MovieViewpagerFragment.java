@@ -16,8 +16,6 @@ import butterknife.BindView;
  * A simple {@link Fragment} subclass.
  */
 public class MovieViewpagerFragment extends BaseFragment implements ListMovieView {
-//    @Inject
-//    ListMoviePresenter mPresenter;
 
     @BindView(R.id.viewpager_frag_list_movie_contain)
     ViewPager mViewpagerFragListMovieContent;
@@ -41,13 +39,5 @@ public class MovieViewpagerFragment extends BaseFragment implements ListMovieVie
 
     @Override
     public void initViews(View view) {
-//        fragmentComponent().inject(this);
-//        mPresenter.attachView(this);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-//        mPresenter.detachView();
     }
 }

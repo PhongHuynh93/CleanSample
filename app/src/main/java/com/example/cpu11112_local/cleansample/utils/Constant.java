@@ -20,4 +20,9 @@ public class Constant {
     public static final String MOVIE_REPOSITION = "MOVIE_REPOSITION";
     public static final String MOVIE_LOCAL = "MOVIE_LOCAL";
     public static final String MOVIE_REMOTE = "MOVIE_REMOTE";
+
+    // sort type
+    public static final String MOST_POPULAR = "popularity.desc";
+    public static final String HIGHEST_RATED = "vote_average.desc";
+    public static final String MOST_RATED = "vote_count.desc";
 }

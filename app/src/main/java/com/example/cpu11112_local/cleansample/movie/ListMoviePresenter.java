@@ -23,4 +23,7 @@ public class ListMoviePresenter extends BasePresenter<ListMovieView> {
     }
 
 
+    public void getDataFromServer(int page) {
+
+    }
 }
