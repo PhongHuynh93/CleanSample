@@ -30,6 +30,7 @@ public class DiscoverMovieResponse {
     @SerializedName("page")
     int page;
 
+    // dont save list of object here
     @SerializedName("results")
     @Ignore
     List<DiscoverMovie> results;

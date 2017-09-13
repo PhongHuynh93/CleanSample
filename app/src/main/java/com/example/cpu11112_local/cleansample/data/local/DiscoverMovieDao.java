@@ -26,5 +26,5 @@ public interface DiscoverMovieDao {
     Flowable<List<DiscoverMovieResponse.DiscoverMovie>> loadAllDiscoverMovieByType(String sortBy);
 
     @Insert(onConflict = REPLACE)
-    void addDiscoverMovie(DiscoverMovieResponse.DiscoverMovie borrowModel);
+    void addDiscoverMovie(List<DiscoverMovieResponse.DiscoverMovie> borrowModel);
 }
