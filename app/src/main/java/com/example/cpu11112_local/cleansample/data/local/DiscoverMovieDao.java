@@ -8,7 +8,7 @@ import com.example.cpu11112_local.cleansample.data.model.DiscoverMovie;
 
 import java.util.List;
 
-import io.reactivex.Flowable;
+import io.reactivex.Maybe;
 
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
@@ -23,7 +23,7 @@ public interface DiscoverMovieDao {
 //    Flowable<DiscoverMovieResponse> loadAllDiscoverMovie(String sortBy);
 
     @Query("SELECT * from DiscoverMovieResponse where sortBy = :sortBy")
-    Flowable<List<DiscoverMovie>> loadAllDiscoverMovieByType(String sortBy);
+    Maybe<List<DiscoverMovie>> loadAllDiscoverMovieByType(String sortBy);
 
     @Insert(onConflict = REPLACE)
     void addDiscoverMovie(List<DiscoverMovie> borrowModel);

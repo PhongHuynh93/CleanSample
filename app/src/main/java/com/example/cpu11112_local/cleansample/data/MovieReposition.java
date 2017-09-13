@@ -1,6 +1,7 @@
 package com.example.cpu11112_local.cleansample.data;
 
 import com.example.cpu11112_local.cleansample.data.local.AppLocalDatabase;
+import com.example.cpu11112_local.cleansample.data.model.DiscoverMovie;
 import com.example.cpu11112_local.cleansample.data.model.DiscoverMovieResponse;
 import com.example.cpu11112_local.cleansample.utils.Constant;
 
@@ -27,13 +28,27 @@ public class MovieReposition implements MovieDataSource {
     @Override
     public Observable<DiscoverMovieResponse> getRemoteDatas(String sortBy, Integer page) {
         // test: 9/13/2017 save the data into local
-        return mRemoteMovieDataSource.getRemoteDatas(sortBy, page)
+//        Maybe<DiscoverMovieResponse> localSource =
+//                mAppLocalDatabase.userDao().loadAllDiscoverMovieByType(sortBy)
+//                .map(new Function<List<DiscoverMovie>, DiscoverMovieResponse>() {
+//                    @Override
+//                    public DiscoverMovieResponse apply(@NonNull List<DiscoverMovie> discoverMovies) throws Exception {
+//                        return new DiscoverMovieResponse(discoverMovies);
+//                    }
+//                });
+        Observable<DiscoverMovieResponse> remoteSource = mRemoteMovieDataSource.getRemoteDatas(sortBy, page)
                 .doOnNext(new Consumer<DiscoverMovieResponse>() {
                     @Override
                     public void accept(DiscoverMovieResponse discoverMovieResponse) throws Exception {
                         // save list of data into rooms
+                        for (DiscoverMovie discoverMovie : discoverMovieResponse.getResults()) {
+                            discoverMovie.setSortBy(discoverMovieResponse.getSortBy());
+                        }
                         mAppLocalDatabase.userDao().addDiscoverMovie(discoverMovieResponse.getResults());
                     }
                 });
+//        Maybe<DiscoverMovieResponse> source =
+//                Maybe.concat(localSource, remoteSource.singleElement()).firstElement();
+        return remoteSource;
     }
 }

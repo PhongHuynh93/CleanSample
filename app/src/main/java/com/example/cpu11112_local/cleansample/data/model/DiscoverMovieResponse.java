@@ -36,4 +36,11 @@ public class DiscoverMovieResponse {
 
     @SerializedName("total_results")
     public long totalResults;
+
+    public DiscoverMovieResponse() {
+    }
+
+    public DiscoverMovieResponse(List<DiscoverMovie> results) {
+        this.results = results;
+    }
 }
