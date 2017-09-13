@@ -8,6 +8,7 @@ import com.example.cpu11112_local.cleansample.injection.component.MovieComponent
 import com.example.cpu11112_local.cleansample.injection.module.ApplicationModule;
 import com.example.cpu11112_local.cleansample.injection.module.MovieApiServiceModule;
 import com.example.cpu11112_local.cleansample.injection.module.RepositionModule;
+import com.facebook.stetho.Stetho;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -21,6 +22,9 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Stetho.initializeWithDefaults(this);
+
         mMovieComponent = DaggerMovieComponent
                 .builder()
                 .applicationModule(new ApplicationModule((getApplicationContext())))

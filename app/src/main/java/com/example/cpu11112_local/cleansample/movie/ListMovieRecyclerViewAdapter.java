@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.cpu11112_local.cleansample.R;
-import com.example.cpu11112_local.cleansample.data.model.DiscoverMovieResponse;
+import com.example.cpu11112_local.cleansample.data.model.DiscoverMovie;
 import com.example.cpu11112_local.cleansample.utils.Constant;
 import com.example.cpu11112_local.cleansample.utils.OnItemClickListener;
 
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovieRecyclerViewAdapter.MovieViewHolder> {
     private final Context mContext;
     private OnItemClickListener onItemClickListener;
-    private List<DiscoverMovieResponse.DiscoverMovie> mListData;
+    private List<DiscoverMovie> mListData;
 
     public ListMovieRecyclerViewAdapter(Context context) {
         this.mContext = context;
@@ -45,7 +45,7 @@ public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovie
 
     @Override
     public void onBindViewHolder(MovieViewHolder viewHolder, int position) {
-        DiscoverMovieResponse.DiscoverMovie movie = mListData.get(position);
+        DiscoverMovie movie = mListData.get(position);
         viewHolder.mTextviewListmovieNameofmovie.setText(movie.getOriginalTitle());
         viewHolder.mfabVoteAverate.setText("" + movie.getAverageVote());
         viewHolder.mTextViewListMovieViewCount.setText("" + movie.getVoteCount());
@@ -63,7 +63,7 @@ public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovie
     }
 
     // TODO: 9/12/2017 if page = 1, remove all data.
-    public void setData(List<DiscoverMovieResponse.DiscoverMovie> listData) {
+    public void setData(List<DiscoverMovie> listData) {
         mListData.addAll(listData);
         notifyDataSetChanged();
     }
@@ -73,7 +73,7 @@ public class ListMovieRecyclerViewAdapter extends RecyclerView.Adapter<ListMovie
         return mListData.size();
     }
 
-    public DiscoverMovieResponse.DiscoverMovie getItem(int position) {
+    public DiscoverMovie getItem(int position) {
         return mListData.get(position);
     }
 

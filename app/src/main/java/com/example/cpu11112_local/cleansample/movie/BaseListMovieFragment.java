@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.cpu11112_local.cleansample.R;
+import com.example.cpu11112_local.cleansample.data.model.DiscoverMovie;
 import com.example.cpu11112_local.cleansample.data.model.DiscoverMovieResponse;
 import com.example.cpu11112_local.cleansample.utils.EndlessRecyclerViewScrollListener;
 import com.example.cpu11112_local.cleansample.utils.HelpUtils;
@@ -144,7 +145,7 @@ public abstract class BaseListMovieFragment extends BaseFragment implements List
     }
 
     public interface OnFragInteract {
-        void gotoDetailActivity(DiscoverMovieResponse.DiscoverMovie item);
+        void gotoDetailActivity(DiscoverMovie item);
     }
 
     protected void getDataFromServer(int page, String sortBy) {

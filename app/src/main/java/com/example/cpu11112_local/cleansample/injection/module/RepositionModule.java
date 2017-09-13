@@ -32,8 +32,8 @@ public class RepositionModule {
     @Provides
     @Singleton
     @Named(Constant.MOVIE_REPOSITION)
-    MovieDataSource getMovieReposition(@Named(Constant.MOVIE_LOCAL) MovieDataSource localmovie, @Named(Constant.MOVIE_REMOTE) MovieDataSource remotemovie) {
-        return new MovieReposition(localmovie, remotemovie);
+    MovieDataSource getMovieReposition(@Named(Constant.MOVIE_LOCAL) MovieDataSource localmovie, @Named(Constant.MOVIE_REMOTE) MovieDataSource remotemovie, AppLocalDatabase appLocalDatabase) {
+        return new MovieReposition(localmovie, remotemovie, appLocalDatabase);
     }
 
     @Provides
