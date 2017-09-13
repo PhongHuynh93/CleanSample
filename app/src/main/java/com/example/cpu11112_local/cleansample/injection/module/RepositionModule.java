@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 
 import com.example.cpu11112_local.cleansample.data.MovieDataSource;
 import com.example.cpu11112_local.cleansample.data.MovieReposition;
+import com.example.cpu11112_local.cleansample.data.local.AppLocalDatabase;
 import com.example.cpu11112_local.cleansample.data.local.MovieLocalDataSource;
 import com.example.cpu11112_local.cleansample.data.remote.MovieRemoteDataSource;
 import com.example.cpu11112_local.cleansample.data.remote.MovieRetrofitEndpoint;
@@ -48,4 +49,11 @@ public class RepositionModule {
     MovieDataSource getRemoteMovie(MovieRetrofitEndpoint movieRetrofitEndpoint) {
         return new MovieRemoteDataSource(movieRetrofitEndpoint);
     }
+
+    @Provides
+    @Singleton
+    AppLocalDatabase getAppLocalDatabase(Context context) {
+        return AppLocalDatabase.getAppDatabase(context);
+    }
+
 }

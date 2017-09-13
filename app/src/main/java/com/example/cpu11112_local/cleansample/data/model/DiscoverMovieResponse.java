@@ -1,5 +1,10 @@
 package com.example.cpu11112_local.cleansample.data.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
@@ -13,11 +18,20 @@ import lombok.Setter;
  * Created by CPU11112-local on 9/11/2017.
  */
 @Getter
+@Entity
 public class DiscoverMovieResponse {
+//    @PrimaryKey(autoGenerate = true)
+//    long id;
+
+    // need this column to query
+    String sortBy;
+
+    @PrimaryKey
     @SerializedName("page")
     int page;
 
     @SerializedName("results")
+    @Ignore
     List<DiscoverMovie> results;
 
     @SerializedName("total_pages")
@@ -29,9 +43,18 @@ public class DiscoverMovieResponse {
     @Parcel
     @Getter
     @Setter
+    @Entity(foreignKeys = {
+            @ForeignKey(
+                    entity = DiscoverMovieResponse.class,
+                    parentColumns = "sortBy",
+                    childColumns = "sortBy"
+            )})
     public static class DiscoverMovie {
+        @PrimaryKey
         @SerializedName("id")
         long id;
+
+        String sortBy;
 
         @SerializedName("original_title")
         String originalTitle;
